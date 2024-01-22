@@ -8,7 +8,7 @@ class UserModel {
         return new Promise(resolve => {
             db.query("SELECT * FROM students", (error, result) => {
                 if (!error)
-                    resolve(result)
+                   return resolve(result)
 
             })
         })

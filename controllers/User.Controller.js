@@ -1,10 +1,7 @@
 const UserModel=require('../models/User.model')
 class UserController{
-
-
-    static  getAllUser(req,res){
-        const  result= UserModel.getUser()
-
+    static async  getAllUser(req,res){
+        const  result= await UserModel.getUser()
         if(result){
             res.send(result)
         }
@@ -12,7 +9,5 @@ class UserController{
             res.send("Sorry")
         }
     }
-
-
 }
 module.exports=UserController

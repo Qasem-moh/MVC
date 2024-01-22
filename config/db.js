@@ -4,11 +4,9 @@ const db=mySql.createConnection({
     host:"localhost",
     user:'root',
     password:"root",
-    database:"qasem"
+    database:"qasem",
 });
-// db.getConnection(()=>{
-//     console.log("Connected to my sql")
-// })
+
 
 db.connect((err)=>{
     if(err) return console.error(err.message)
