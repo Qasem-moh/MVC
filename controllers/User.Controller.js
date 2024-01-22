@@ -2,11 +2,14 @@ const UserModel=require('../models/User.model')
 class UserController{
 
 
-    static async getAll(req,res){
-        const  result=await UserModel.getUser()
-        if(result){
+    static  getAllUser(req,res){
+        const  result= UserModel.getUser()
 
-            console.log(result)
+        if(result){
+            res.send(result)
+        }
+        else{
+            res.send("Sorry")
         }
     }
 
