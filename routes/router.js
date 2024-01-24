@@ -9,8 +9,12 @@ router.get('/',(req,res,next)=>{
 
 //get all user
 router.get('/getAll',userController.getAllUser)
+
+//insert data
 router.post('/addnewuser',userController.addNewUser)
 
+//test api
+router.get('/test',userController.testAPi)
 
 
 module.exports=router

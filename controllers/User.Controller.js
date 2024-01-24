@@ -1,31 +1,40 @@
-const UserModel=require('../models/User.model')
-class UserController{
-    static async  getAllUser(req,res){
-        const  result= await UserModel.getUser()
-        if(result){
-            res.send(result)
-        }
-        else{
-            res.send("Sorry")
+const UserModel = require("../models/User.model");
+
+// class controllers
+class UserController {
+
+
+    //controllr  to get all
+    static async getAllUser(req, res) {
+        const result = await UserModel.getUser();
+        if (result) {
+            res.send(result);
+        } else {
+            res.send("Sorry");
         }
     }
 
     static async addNewUser(req, res) {
-        let name = req.body.name
-        let age = req.body.age
-        let phone = req.body.phone
-        let city = req.body.city
-        let nclass = req.body.nclass
-        const result = await UserModel.addNewUser(name, age, phone, city, nclass)
+    
+
+        const result = await UserModel.addNewUser();
+
         if (result) {
             res.send(result)
+
             console.log(result)
+
         } else {
-            res.send("Sorry")
+
+            console.log("Sorry");
         }
     }
 
-
+    static async testAPi(req,res){
+        const name=req.body.name
+        const result= await UserModel.testAPi(name);
+        result? console.log("done"):console.log("sorry");
+    }
 }
 
-module.exports=UserController
+module.exports = UserController;

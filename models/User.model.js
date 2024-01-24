@@ -7,7 +7,7 @@ class UserModel {
         return new Promise(resolve => {
             db.query("SELECT * FROM students", (error, result) => {
                 if (!error)
-                   return resolve(result)
+                    return resolve(result)
 
             })
 
@@ -15,20 +15,28 @@ class UserModel {
 
     }
 
-    static async addNewUser(name,phone,age,city,nclass){
+    static async addNewUser(name, phone, age, city, nclass) {
 
-        return new Promise(resolve=> {
-            db.query("INSERT INTO students (uname,uphone,uage,city,nclass) values(?,?,?,?,?)",[name,phone,age,city,nclass],(error,result)=>{
-                if(!error)
-                    resolve("Add Successfully")
-                else
-                    console.log(error)
-                    resolve("error.message")
-            })
+        return new Promise(resolve => {
+
+            db.query("INSERT INTO students (name,phone,age,city,nclass) values('Qasem','78985546584',20,'dfsfd','324342423423423')",
+                (error, result) => {
+                    if (!error)
+                        resolve("Add Successfully")
+                    else
+                        console.log(error)
+                    resolve(error)
+                })
 
         })
     }
-nclass
+
+    static async testAPi(name) {
+        return new Promise(resolve => {
+            console.log(name);
+        })
+    }
+
 }
 
 
@@ -48,4 +56,4 @@ nclass
 
 
 
-module.exports= UserModel
+module.exports = UserModel
