@@ -1,15 +1,23 @@
-const express=require('express')
+const express=require("express")
+
+const DB=require('./config/DB')
+const bodyParser=require("body-parser")
+const router=require('./Routes/Routes')
+
+
 const app=express()
-const boduParser=require('body-parser')
 const port=5452
-const mydb=require('./config/db')
-const router=require("./routes/router")
 
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(router)
-app.use(boduParser.json())
-app.use(boduParser.urlencoded({extended:true}))
 
-app.listen(port,()=>{
-    console.log(`Server is running on port ${port} `)
-})
+
+
+
+
+
+
+
+
+app.listen(port,()=> console.log("Server is running"))
