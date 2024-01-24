@@ -15,9 +15,13 @@ class UserController {
     }
 
     static async addNewUser(req, res) {
-    
+        var name = req.body.name;
+        var phone = req.body.phone;
+        var age = req.body.age;
+        var city = req.body.age;
+        var nclass = req.body.nclass;
 
-        const result = await UserModel.addNewUser();
+        const result = await UserModel.addNewUser(name, phone, age, city, nclass);
 
         if (result) {
             res.send(result)
@@ -30,10 +34,10 @@ class UserController {
         }
     }
 
-    static async testAPi(req,res){
-        const name=req.body.name
-        const result= await UserModel.testAPi(name);
-        result? console.log("done"):console.log("sorry");
+    static async testAPi(req, res) {
+
+        const result =  UserModel.testAPi(req.body.test);
+        result ? console.log("done") : console.log("sorry");
     }
 }
 

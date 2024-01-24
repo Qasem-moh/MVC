@@ -15,11 +15,29 @@ class UserModel {
 
     }
 
+    // static async addNewUser(name, phone, age, city, nclass) {
+
+    //     return new Promise(resolve => {
+
+    //         db.query("INSERT INTO students (name,phone,age,city,nclass) values('Qasem','78985546584',20,'dfsfd','324342423423423')",
+    //             (error, result) => {
+    //                 if (!error)
+    //                     resolve("Add Successfully")
+    //                 else
+    //                     console.log(error)
+    //                 resolve(error)
+    //             })
+
+    //     })
+    // }
+
+
     static async addNewUser(name, phone, age, city, nclass) {
 
         return new Promise(resolve => {
 
-            db.query("INSERT INTO students (name,phone,age,city,nclass) values('Qasem','78985546584',20,'dfsfd','324342423423423')",
+            db.query("INSERT INTO students (name,phone,age,city,nclass) values(?,?,?,?,?)",
+                [name, phone, age, city, nclass],
                 (error, result) => {
                     if (!error)
                         resolve("Add Successfully")
@@ -31,9 +49,10 @@ class UserModel {
         })
     }
 
-    static async testAPi(name) {
+
+    static async testAPi(test) {
         return new Promise(resolve => {
-            console.log(name);
+            console.log(test);
         })
     }
 
