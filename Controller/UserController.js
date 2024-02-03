@@ -60,7 +60,7 @@ class UserController {
 
     //deleteStudents
     static async deleteStudents(req, res) {
-        const id = req.params.id;
+        const id = req.body.id;
         if (id) {
 
             const result = await UserModel.deleteStudents(id);

@@ -22,7 +22,7 @@ class UserModels {
     static async deleteStudents(id) {
         return new Promise(resolve => {
 
-            DB.query(`delete from students where id=${id}`, (err, result) => {
+            DB.query('delete from students where id=?', [id], (err, result) => {
                 if (err) {
                     resolve(false)
                 } else {
