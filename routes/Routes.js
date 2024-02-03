@@ -7,6 +7,7 @@ router.post('/send',UserController.createUser)
 router.post('/createNewStudent',UserController.createNewStudent)
 router.get('/getAllUsers',UserController.getAllUsers)
 router.get('/getAllStudents',UserController.getAllStudents)
+router.post('/deleteStudents',UserController.deleteStudents)
 
 
 module.exports=router

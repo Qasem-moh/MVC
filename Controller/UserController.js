@@ -57,6 +57,22 @@ class UserController {
 
         }
     }
+
+    //deleteStudents
+    static async deleteStudents(req, res) {
+        const id = req.params.id;
+        if (id) {
+
+            const result = await UserModel.deleteStudents(id);
+            if (result){
+                res.send("delete one")
+                console.log(result)
+            }else {
+                res.send("error to delete")
+                console.log('error')
+            }
+        }
+    }
 }
 
 module.exports = UserController;
