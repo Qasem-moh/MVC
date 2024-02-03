@@ -16,6 +16,25 @@ class UserController {
         }
     }
 
+    static async updateStudents(req, res) {
+        const id = req.body.id
+        const name = req.body.name;
+        const phone = req.body.phone;
+        const age = req.body.age;
+        const city = req.body.city;
+        const nclass = req.body.nclass;
+        const result = await UserModel.updateStudents(id, name, phone, age, city, nclass);
+
+        if (result) {
+            res.send("update students")
+            console.log(result)
+        } else {
+            res.send("update students error")
+            console.log('error')
+
+        }
+    }
+
     static async getAllUsers(req, res) {
         const result = await UserModel.getAllUsers();
         if (result) {

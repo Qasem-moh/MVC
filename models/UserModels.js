@@ -18,6 +18,21 @@ class UserModels {
             })
         })
     }
+    //updateStudents
+    static async updateStudents(id, name, phone, age, city, nclass) {
+        return new Promise(resolve => {
+
+            DB.query('update students set  name=? phone=? age=? city=? nclass=? where id=?) values (?,?,?)',  [name, phone, age, city, nclass,id], (err, result) => {
+                if (err) {
+                    resolve(err)
+                    console.log(err.message);
+                } else {
+                    resolve(result)
+                    console.log(result);
+                }
+            })
+        })
+    }
     //deleteStudents
     static async deleteStudents(id) {
         return new Promise(resolve => {
