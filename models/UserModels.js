@@ -22,7 +22,7 @@ class UserModels {
     static async updateStudents(id, name, phone, age, city, nclass) {
         return new Promise(resolve => {
 
-            DB.query('update students set  name=? phone=? age=? city=? nclass=? where id=?) values (?,?,?)',  [name, phone, age, city, nclass,id], (err, result) => {
+            DB.query('update students set  name=?, phone=?, age=?, city=? ,nclass=? where id=?',  [name, phone, age, city, nclass,id], (err, result) => {
                 if (err) {
                     resolve(err)
                     console.log(err.message);
